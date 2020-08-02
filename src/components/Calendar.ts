@@ -32,12 +32,12 @@ class Calendar {
         ]
         this.createCalendar()
     }
-    public createCalendar() {
+    public createCalendar(): void {
         this.drawCalendar();
 
     }
 
-    private drawCalendar() {
+    private drawCalendar(): void {
 
         const currentMonthDays = this.getMonthDays();
         let days = []
@@ -80,8 +80,8 @@ class Calendar {
                
             </div>`
 
-        const nextButton = document.getElementById('calendar-next-month');
-        const prevButton = document.getElementById('calendar-prev-month');
+        const nextButton: HTMLElement | null = document.getElementById('calendar-next-month');
+        const prevButton: HTMLElement | null = document.getElementById('calendar-prev-month');
 
         nextButton?.addEventListener('click', () => {
             this.nextMonth();
@@ -97,21 +97,18 @@ class Calendar {
         return currentMonthDays;
     }
 
-    private nextMonth() {
+    private nextMonth(): void {
         if (this.selectedMonth < 12) {
             this.selectedMonth++;
             this.drawCalendar()
         }
-        return;
     }
 
-    private previousMonth() {
+    private previousMonth(): void {
         if (this.selectedMonth > 1) {
             this.selectedMonth--;
             this.drawCalendar()
         }
-        return;
-
     }
 }
 
